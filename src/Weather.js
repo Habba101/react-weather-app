@@ -32,7 +32,8 @@ function handleSubmit(event) {
 
 function handleCityChange(event) {
   setCity(event.target.value);
-  search();}
+  search();
+}
 
 if (weatherData.ready) {
 return (
