@@ -28,12 +28,12 @@ axios.get(apiUrl).then(handleResponse);
 
 function handleSubmit(event) {
   event.preventDefault();
+   search();
   } 
 
 function handleCityChange(event) {
   setCity(event.target.value);
-  search();
-}
+ }
 
 if (weatherData.ready) {
 return (
