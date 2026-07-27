@@ -12,7 +12,7 @@ export default function App() {
       This project was coded by Rahaba Motaung  and is {""}
       <a href="https://github.com/Habba101/react-weather-app" target="_blank" rel="noopener noreferrer">
        open-sourced on GitHub
-      </a>
+      </a> and is <a href="https://habbas-react-weather-app.netlify.app/">hosted on Netlify</a>
     </footer>
 </div> 
     </div>
