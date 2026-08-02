@@ -4,35 +4,38 @@ import "./WeatherForecast.css";
 import axios from "axios";
 
 export default function WeatherForecast(props) {
-   let [loaded, setLoaded] = useState(false);
-let [forecast, setForecast] = useState(null);
+  let [loaded, setLoaded] = useState(false);
+  let [forecast, setForecast] = useState(null);
 
-function handleResponse(response) {
-        setForecast(response.data);
+  function handleResponse(response) {
+  console.log(response.data);
+
+  setForecast(response.data);
   setLoaded(true);
 }
 
+  useEffect(() => {
+  let apiKey = "04a431911affb5c41b1586520bf15220";
+  let longitude = props.coordinates.lon;
+  let latitude = props.coordinates.lat;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
 
-    let apiKey = "04a431911affb5c41b1586520bf15220";
-    let longitude = props.coordinates.lon;
-    let latitude = props.coordinates.lat;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric`;
-  
-useEffect(() => {
   axios.get(apiUrl).then(handleResponse);
 }, [props.coordinates]);
 
-if (!loaded) {
+  if (!loaded) {
   return null;
 }
 
-    return (
-        <div className="WeatherForecast">
-            <div className="row">
-              <div className="col">
-              <WeatherForecastDay data={forecast.list[0]} />
-                </div>
-            </div>
+  return (
+    <div className="WeatherForecast">
+      <div className="row">
+        <div className="col">
+
+          <WeatherForecastDay data={forecast.list[0]} />
+
         </div>
+      </div>
+    </div>
     );
   }
