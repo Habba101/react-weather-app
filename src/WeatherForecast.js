@@ -30,12 +30,19 @@ export default function WeatherForecast(props) {
   return (
     <div className="WeatherForecast">
       <div className="row">
-        <div className="col">
-
-          <WeatherForecastDay data={forecast.list[0]} />
-
-        </div>
+       {forecast.list
+  .filter(function (forecast, index) {
+    return index % 8 === 0;
+  })
+  .map(function (dailyForecast, index) {
+          return (
+            <div className="col" key={index}>
+              <WeatherForecastDay data={dailyForecast} />
+            </div>
+          );
+        })}
       </div>
     </div>
     );
   }
+    
