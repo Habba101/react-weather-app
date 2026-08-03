@@ -35,6 +35,7 @@ export default function WeatherForecast(props) {
     return index % 8 === 0;
   })
   .map(function (dailyForecast, index) {
+     console.log(dailyForecast.main);
           return (
             <div className="col" key={index}>
               <WeatherForecastDay data={dailyForecast} />

@@ -2,6 +2,7 @@ import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
 export default function WeatherForecastDay(props) {
+
   function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -21,9 +22,12 @@ export default function WeatherForecastDay(props) {
                 {Math.round(props.data.main.temp_max)}°
             </span> 
             <span className="WeatherForecast-temperature-min">
-                {Math.round(props.data.main.temp_min)}°
+                {props.data.main.temp_min.toFixed(1)}°
             </span> 
         </div>
     </div>
     );
+   
 }
+
+    
